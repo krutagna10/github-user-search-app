@@ -1,0 +1,9 @@
+.header {
+  padding-block: var(--spacing-200);
+}
+
+.header__btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
