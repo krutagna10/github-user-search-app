@@ -1,3 +1,15 @@
-# React Typescript Template
+# GitHub User Search App
 
-This repository provides a React template powered by Vite, a fast build tool and development server.
+### Links
+
+- Live Site URL: [https://github-user-search-app-10.netlify.app/]
+
+[//]: # (### Screenshot)
+
+[//]: # ()
+[//]: # (![]&#40;screenshot/Screenshot.png&#41;)
+
+### Built with
+
+- React
+- Typescript
