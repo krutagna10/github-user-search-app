@@ -3,7 +3,7 @@ import "./User.css";
 import UserStats from "../UserStats/UserStats.tsx";
 
 interface UserDataProps {
-  user: UserType | null;
+  user: UserType;
 }
 
 const getMonthName = (monthNumber: number): string => {
@@ -25,12 +25,6 @@ const getMonthName = (monthNumber: number): string => {
 };
 
 function User({ user }: UserDataProps) {
-  if (!user) {
-    return null;
-  }
-
-  console.log(user);
-
   const date = user.joinedAt.getDate();
   const month = user.joinedAt.getMonth() + 1;
   const year = user.joinedAt.getFullYear();

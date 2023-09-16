@@ -8,7 +8,7 @@ import UserType from "./models/user.ts";
 const url = `https://api.github.com/users`;
 
 function App() {
-  const [user, setUser] = useState<UserType | null>(null);
+  const [user, setUser] = useState<UserType>({} as UserType);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   async function fetchData(username: string) {
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   function handleSearch(username: string) {
-    fetchData(username)
+    fetchData(username);
   }
 
   if (isLoading) {
