@@ -153,9 +153,22 @@ body {
   font-size: var(--fs-400);
 }
 
+/* Background-color */
+.bg-very-dark-blue {
+  background-color: var(--clr-very-dark-blue);
+}
+
+.bg-dark-blue {
+  background-color: var(--clr-dark-blue);
+}
+
 /* Text Align Center */
 .text-center {
   text-align: center;
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 

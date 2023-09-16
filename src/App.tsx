@@ -2,26 +2,29 @@ import { useEffect, useState } from "react";
 import Container from "./components/UI/Container/Container.tsx";
 import Header from "./components/Header/Header.tsx";
 import SearchBar from "./components/SearchBar/SearchBar.tsx";
-import UserData from "./components/UserData/UserData.tsx";
-import User from "./components/user.ts";
+import User from "./components/User/User.tsx";
+import UserType from "./models/user.ts";
 
 const url = `https://api.github.com/users`;
 
 function App() {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [user, setUser] = useState<UserType | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   async function fetchData(username: string) {
     setIsLoading(true);
     const response = await fetch(`${url}/${username}`);
     const data = await response.json();
-    console.log(data);
     setUser({
-      username: data.login,
-      name: data.name,
+      avatar: data.avatar_url,
+      bio: data.bio,
       followers: data.followers,
       following: data.following,
+      githubUrl: data.html_url,
+      joinedAt: new Date(data.created_at),
+      name: data.name,
       repos: data.public_repos,
+      username: data.login,
     });
     setIsLoading(false);
   }
@@ -29,8 +32,6 @@ function App() {
   useEffect(() => {
     fetchData("krutagna10");
   }, []);
-
-  console.log(user);
 
   function handleSearch(username: string) {
     fetchData(username)
@@ -43,10 +44,10 @@ function App() {
   return (
     <main>
       <section className="github-search-app-section">
-        <Container className="github-search-app">
+        <Container className="flow">
           <Header />
           <SearchBar onSearch={handleSearch} />
-          <UserData user={user} />
+          <User user={user} />
         </Container>
       </section>
     </main>
