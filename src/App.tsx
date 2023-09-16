@@ -11,20 +11,26 @@ function App() {
   const [user, setUser] = useState<UserType>({} as UserType);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+
   async function fetchData(username: string) {
     setIsLoading(true);
     const response = await fetch(`${url}/${username}`);
     const data = await response.json();
+    console.log(data);
     setUser({
       avatar: data.avatar_url,
       bio: data.bio,
+      company: data.company,
       followers: data.followers,
       following: data.following,
       githubUrl: data.html_url,
       joinedAt: new Date(data.created_at),
+      location: data.location,
       name: data.name,
       repos: data.public_repos,
+      twitter: data.twitter_username,
       username: data.login,
+      website: data.blog,
     });
     setIsLoading(false);
   }

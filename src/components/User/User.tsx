@@ -1,6 +1,7 @@
 import UserType from "../../models/user.ts";
-import "./User.css";
 import UserStats from "../UserStats/UserStats.tsx";
+import "./User.css";
+import UserInfo from "../UserInfo/UserInfo.tsx";
 
 interface UserDataProps {
   user: UserType;
@@ -49,6 +50,12 @@ function User({ user }: UserDataProps) {
           followers={user.followers}
           following={user.following}
           repos={user.repos}
+        />
+        <UserInfo
+          company={user.company}
+          location={user.location}
+          twitter={user.twitter}
+          website={user.website}
         />
       </div>
     </div>
