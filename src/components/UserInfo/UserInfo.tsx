@@ -13,27 +13,43 @@ interface UserInfoProps {
 
 function UserInfo({ company, location, twitter, website }: UserInfoProps) {
   return (
-    <div className="user__info grid gap items-center">
-      <div className="flex gap">
+    <div className="user__info grid gap">
+      <div className="flex items-center gap">
         <img src={iconLocation} alt="" />
         <p>{location || "Not Available"}</p>
       </div>
-      <div className="flex gap items-center">
+      <div className="flex items-center gap">
         <img src={iconTwitter} alt="" />
         {twitter ? (
-          <a href={`https://twitter.com/${twitter}`}>@{twitter}</a>
+          <a
+            className="user__stats-link"
+            href={`https://twitter.com/${twitter}`}
+          >
+            @{twitter}
+          </a>
         ) : (
           <p>Not Available</p>
         )}
       </div>
-      <div className="flex gap items-center">
+      <div className="flex items-center gap">
         <img src={iconWebsite} alt="" />
-        {website ? <a className="user__info-website-link" href={website}>{website}</a> : <p>Not Available</p>}
+        {website ? (
+          <a className="user__stats-link" href={website}>
+            {website}
+          </a>
+        ) : (
+          <p>Not Available</p>
+        )}
       </div>
-      <div className="flex gap items-center">
+      <div className="flex items-center gap">
         <img src={iconCompany} alt="" />
         {company ? (
-          <a href={`https://github.com/${company}`}>@{company}</a>
+          <a
+            className="user__stats-link"
+            href={`https://github.com/${company}`}
+          >
+            {company}
+          </a>
         ) : (
           <p>Not Available</p>
         )}

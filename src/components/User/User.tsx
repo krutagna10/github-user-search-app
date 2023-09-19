@@ -42,7 +42,7 @@ function User({ user }: UserDataProps) {
             Joined {date} {getMonthName(month)} {year}
           </p>
         </div>
-        <a target="_blank" href={user.githubUrl}>
+        <a className="user__link" target="_blank" href={user.githubUrl}>
           @{user.username}
         </a>
         <p>{user.bio}</p>

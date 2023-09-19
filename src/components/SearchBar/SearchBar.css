@@ -1,6 +1,7 @@
 .form-wrapper {
   background-color: var(--clr-dark-blue);
   padding: var(--spacing-100) var(--spacing-300);
+  border-radius: var(--border-radius-100);
 }
 
 .form__label {
