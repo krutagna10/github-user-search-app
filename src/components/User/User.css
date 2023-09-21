@@ -2,18 +2,24 @@
   margin-top: var(--spacing-300);
   background-color: var(--clr-dark-blue);
   padding: var(--spacing-400) var(--spacing-300);
-  display: flex;
   border-radius: var(--border-radius-100);
 }
 
 .user__image {
-  width: 9rem;
+  width: min(20vw, 8rem);
   border-radius: 50%;
 }
 
-.user__content {
-  flex-grow: 1;
+
+@media(min-width: 48em) {
+  .user__data {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
+
 
 .user__link {
   color: var(--clr-blue);

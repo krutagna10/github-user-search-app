@@ -23,7 +23,7 @@ function UserStats({ followers, following, repos  }: UserStats) {
   ]
 
   return (
-    <div className="user__stats grid bg-very-dark-blue">
+    <div className="user__stats grid gap bg-very-dark-blue">
       {stats.map((stat, index) => (
         <div key={index + 1}>
           <h3 className="fs-100">{stat.title}</h3>

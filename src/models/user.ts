@@ -1,6 +1,5 @@
 interface UserType {
   avatar: string;
-  bio: string;
   company: string | null;
   followers: number;
   following: number;

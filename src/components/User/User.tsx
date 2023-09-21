@@ -31,33 +31,32 @@ function User({ user }: UserDataProps) {
   const year = user.joinedAt.getFullYear();
 
   return (
-    <div className="user flex gap">
-      <div>
+    <div className="user flow">
+      <div className="flex items-center gap">
         <img className="user__image" src={user.avatar} alt={user.name} />
-      </div>
-      <div className="user__content flow">
-        <div className="flex justify-between">
+        <div className="user__data">
+          <div>
           <h2>{user.name}</h2>
+            <a className="user__link" target="_blank" href={user.githubUrl}>
+              @{user.username}
+            </a>
+          </div>
           <p className="fs-100">
             Joined {date} {getMonthName(month)} {year}
           </p>
         </div>
-        <a className="user__link" target="_blank" href={user.githubUrl}>
-          @{user.username}
-        </a>
-        <p>{user.bio}</p>
-        <UserStats
-          followers={user.followers}
-          following={user.following}
-          repos={user.repos}
-        />
-        <UserInfo
-          company={user.company}
-          location={user.location}
-          twitter={user.twitter}
-          website={user.website}
-        />
       </div>
+      <UserStats
+        followers={user.followers}
+        following={user.following}
+        repos={user.repos}
+      />
+      <UserInfo
+        company={user.company}
+        location={user.location}
+        twitter={user.twitter}
+        website={user.website}
+      />
     </div>
   );
 }

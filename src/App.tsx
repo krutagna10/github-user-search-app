@@ -16,10 +16,8 @@ function App() {
     setIsLoading(true);
     const response = await fetch(`${url}/${username}`);
     const data = await response.json();
-    console.log(data);
     setUser({
       avatar: data.avatar_url,
-      bio: data.bio,
       company: data.company,
       followers: data.followers,
       following: data.following,
@@ -36,7 +34,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetchData("krutagna10");
+    fetchData("octocat");
   }, []);
 
   function handleSearch(username: string) {
