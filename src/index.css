@@ -178,20 +178,4 @@ body {
   font-weight: bold;
 }
 
-table {
-  width: 100%;
-  text-align: center;
-  margin-top: 1.25rem;
-}
 
-th,
-td {
-  padding: 1rem;
-}
-
-table,
-th,
-td {
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-collapse: collapse;
-}

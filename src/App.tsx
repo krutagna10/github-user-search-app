@@ -11,7 +11,6 @@ function App() {
   const [user, setUser] = useState<UserType>({} as UserType);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-
   async function fetchData(username: string) {
     setIsLoading(true);
     const response = await fetch(`${url}/${username}`);
