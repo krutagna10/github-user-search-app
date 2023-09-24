@@ -1,13 +1,14 @@
 import iconSearch from "../../assets/icon-search.svg";
 import "./SearchBar.css";
 import * as React from "react";
-import {useState} from "react";
+import { useState } from "react";
 
 interface SearchBarProps {
   onSearch: (username: string) => void;
+  error: string | null;
 }
 
-function SearchBar({ onSearch }: SearchBarProps) {
+function SearchBar({ onSearch, error }: SearchBarProps) {
   const [username, setUsername] = useState<string>("");
 
   function handleUsernameChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -34,6 +35,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
           value={username}
           placeholder="Search Github username..."
         />
+        {error && <span className="form__error-message">{error}</span>}
         <button className="form__btn">Search</button>
       </form>
     </div>

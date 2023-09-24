@@ -10,26 +10,38 @@ const url = `https://api.github.com/users`;
 function App() {
   const [user, setUser] = useState<UserType>({} as UserType);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   async function fetchData(username: string) {
-    setIsLoading(true);
-    const response = await fetch(`${url}/${username}`);
-    const data = await response.json();
-    setUser({
-      avatar: data.avatar_url,
-      company: data.company,
-      followers: data.followers,
-      following: data.following,
-      githubUrl: data.html_url,
-      joinedAt: new Date(data.created_at),
-      location: data.location,
-      name: data.name,
-      repos: data.public_repos,
-      twitter: data.twitter_username,
-      username: data.login,
-      website: data.blog,
-    });
-    setIsLoading(false);
+    try {
+      setIsLoading(true);
+      const response = await fetch(`${url}/${username}`);
+      if (!response.ok) {
+        throw new Error("No results");
+      }
+      const data = await response.json();
+      setUser({
+        avatar: data.avatar_url,
+        company: data.company,
+        followers: data.followers,
+        following: data.following,
+        githubUrl: data.html_url,
+        joinedAt: new Date(data.created_at),
+        location: data.location,
+        name: data.name,
+        repos: data.public_repos,
+        twitter: data.twitter_username,
+        username: data.login,
+        website: data.blog,
+      });
+      setIsLoading(false);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -49,7 +61,7 @@ function App() {
       <section className="github-search-app-section">
         <Container className="flow">
           <Header />
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar onSearch={handleSearch} error={error} />
           <User user={user} />
         </Container>
       </section>
