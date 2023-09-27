@@ -4,6 +4,7 @@ import Header from "./components/Header/Header.tsx";
 import SearchBar from "./components/SearchBar/SearchBar.tsx";
 import User from "./components/User/User.tsx";
 import UserType from "./models/user.ts";
+import "./App.css";
 
 const url = `https://api.github.com/users`;
 
@@ -52,6 +53,10 @@ function App() {
     fetchData(username);
   }
 
+  function handleRemoveError() {
+    setError(null);
+  }
+
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
@@ -61,7 +66,11 @@ function App() {
       <section className="github-search-app-section">
         <Container className="flow">
           <Header />
-          <SearchBar onSearch={handleSearch} error={error} />
+          <SearchBar
+            onSearch={handleSearch}
+            error={error}
+            onRemoveError={handleRemoveError}
+          />
           <User user={user} />
         </Container>
       </section>

@@ -6,13 +6,17 @@ import { useState } from "react";
 interface SearchBarProps {
   onSearch: (username: string) => void;
   error: string | null;
+  onRemoveError: () => void;
 }
 
-function SearchBar({ onSearch, error }: SearchBarProps) {
+function SearchBar({ onSearch, error, onRemoveError }: SearchBarProps) {
   const [username, setUsername] = useState<string>("");
 
   function handleUsernameChange(event: React.ChangeEvent<HTMLInputElement>) {
     setUsername(event.target.value);
+    if (error && event.target.value.trim().length > 0) {
+      onRemoveError();
+    }
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

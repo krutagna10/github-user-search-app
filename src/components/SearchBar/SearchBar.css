@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.form__label > img {
+  width: 2rem;
+}
+
 .form__input {
   background: transparent;
   width: 100%;
