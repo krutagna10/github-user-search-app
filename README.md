@@ -4,10 +4,9 @@
 
 - Live Site URL: [https://github-user-search-app-10.netlify.app/]
 
-[//]: # (### Screenshot)
+### Screenshot
 
-[//]: # ()
-[//]: # (![]&#40;screenshot/Screenshot.png&#41;)
+![](screenshot/Screenshot.png)
 
 ### Built with
 
